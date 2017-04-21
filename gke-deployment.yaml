@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: geodns
+  labels:
+    app: geodns
+  annotations:
+    service.beta.kubernetes.io/external-traffic: "OnlyLocal"
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 35.185.175.0
+  ports:
+  - port: 53
+    targetPort: 5053
+    protocol: UDP
+  selector:
+    app: geodns
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: geodns
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: geodns
+    spec:
+      containers:
+      - name: geodns
+        image: asia.gcr.io/gcp-taiwan/geodns:latest
+        ports:
+        - protocol: UDP
+          containerPort: 5053

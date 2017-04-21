@@ -1,0 +1,25 @@
+{
+    "serial": 3,
+    "ttl": 300,
+    "targeting": "country continent @ regiongroup region ip asn",
+    "data": {
+        "": {
+            "ns": {"geodns1.gcpug.tw": null, "geodns2.gcpug.tw": null}
+        },
+        "test": {
+            "a": [["127.0.0.1"]]
+        },
+        "test.us": {"a": [["127.0.0.2"]]},
+        "test.cn": {"a": [["127.0.0.3"]]},
+        "test.tw": {"a": [["127.0.0.4"]]},
+        "test.jp": {"a": [["127.0.0.5"]]},
+        "test.tw": {"a": [["127.0.0.6"]]},
+        "test.fr": {"a": [["127.0.0.7"]]},
+        "test.nl": {"a": [["127.0.0.8"]]},
+        "test.br": {"a": [["127.0.0.9"]]},
+        "test.in": {"a": [["127.0.0.10"]]},
+        "test.au": {"a": [["127.0.0.11"]]},
+        "test.es": {"a": [["127.0.0.12"]]},
+        "test.sa": {"a": [["127.0.0.13"]]}
+    }
+}
