@@ -4,11 +4,10 @@ metadata:
   name: geodns
   labels:
     app: geodns
-  annotations:
-    service.beta.kubernetes.io/external-traffic: "OnlyLocal"
 spec:
   type: LoadBalancer
   loadBalancerIP: 35.185.175.0
+  externalTrafficPolicy: Local
   ports:
   - port: 53
     targetPort: 5053
