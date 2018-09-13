@@ -10,13 +10,12 @@ RUN apk add --no-cache --virtual .build-deps \
 	openssl
 RUN cd /usr/share/GeoIP \
  && rm -f * \
- && wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz \
- && wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz \
- && wget http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz \
- && gzip -d GeoIP.dat.gz \
- && gzip -d GeoLiteCity.dat.gz \
- && gzip -d GeoIPASNum.dat.gz \
- && mv GeoLiteCity.dat GeoIPCity.dat
+ && wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz \
+ && wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz \
+ && wget -N -nv -O GeoLite2-ASN.mmdb.gz 'https://updates.maxmind.com/app/update_secure?edition_id=GeoLite2-ASN' \
+ && gzip -d GeoLite2-ASN.mmdb.gz \
+ && gzip -d GeoLite2-City.mmdb.gz \
+ && gzip -d GeoLite2-Country.mmdb.gz
 WORKDIR /go
 RUN go get github.com/abh/geodns
 WORKDIR /go/src/github.com/abh/geodns
